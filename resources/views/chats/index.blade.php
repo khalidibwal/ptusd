@@ -29,7 +29,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Message</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody></tbody>
@@ -84,7 +84,7 @@
             $('input[name=_method]').val('POST');
             $('#modal-form').modal('show');
             $('#modal-form form')[0].reset();
-            $('.modal-title').text('Add Categories');
+            $('.modal-title').text('Add Chats');
         }
 
         function editForm(id) {
