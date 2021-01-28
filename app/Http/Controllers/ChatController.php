@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Chating;
+use App\chating;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Datatables;
 
@@ -14,7 +14,7 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $chating = Chating::all();
+        $chating = chating::all();
         return view('chats.index')->with('chating',$chating);
     }
 
@@ -37,10 +37,10 @@ class ChatController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama'   => 'required|string|min:2'
+            'nama'   => 'required'
          ]);
  
-         Chating::create($request->all());
+         chating::create($request->all());
  
          return response()->json([
             'success'    => true,
@@ -67,7 +67,8 @@ class ChatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $chating = chating::find($id);
+        return $chating;
     }
 
     /**
@@ -79,7 +80,20 @@ class ChatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama'      => 'required|string|min:2',
+            'email'     => 'required',
+            'message'   => 'required',
+        ]);
+
+        $chating = chating::findOrFail($id);
+
+        $chating->update($request->all());
+
+        return response()->json([
+            'success'    => true,
+            'message'    => 'Chat Updated'
+        ]);
     }
 
     /**
@@ -90,16 +104,21 @@ class ChatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        chating::destroy($id);
+
+        return response()->json([
+            'success'    => true,
+            'message'    => 'Chat Delete'
+        ]);
     }
     public function apiChat(){
-        $Chating = Chating::all();
+        $chating = chating::all();
 
-        return Datatables::of($Chating)
-            ->addColumn('action', function($Chating){
+        return Datatables::of($chating)
+            ->addColumn('action', function($chating){
                 return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
-                    '<a onclick="editForm('. $Chating->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
-                    '<a onclick="deleteData('. $Chating->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+                    '<a onclick="editForm('. $chating->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
+                    '<a onclick="deleteData('. $chating->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
             })
             ->rawColumns(['action'])->make(true);
     }

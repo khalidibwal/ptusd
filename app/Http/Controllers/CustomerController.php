@@ -46,12 +46,12 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nama'      => 'required',
-            'alamat'    => 'required',
-            'email'     => 'required|unique:customers',
-            'telepon'   => 'required',
-        ]);
+        // $this->validate($request, [
+        //     'nama'      => 'required',
+        //     'alamat'    => 'required',
+        //     'email'     => 'required|unique:customers',
+        //     'telepon'   => 'required',
+        // ]);
 
         Customer::create($request->all());
 
