@@ -27,7 +27,7 @@
             <div class="inner">
                 <h3>{{ \App\Category::count() }}<sup style="font-size: 20px"></sup></h3>
 
-                <p>Category</p>
+                <p>News & Article</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>

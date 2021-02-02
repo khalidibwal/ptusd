@@ -23,9 +23,9 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
             <li class="active"><a href="{{ route('chat.index') }}"><i class="fa fa-link"></i> <span>Chat</span></a></li>
-            <li class="active"><a href="{{ route('categories.index') }}"><i class="fa fa-link"></i> <span>Category</span></a></li>
-            <li class="active"><a href="{{ route('products.index') }}"><i class="fa fa-link"></i> <span>Product</span></a></li>
-            <li class="active"><a href="{{ route('customers.index') }}"><i class="fa fa-link"></i> <span>Customer</span></a></li>
+            <li class="active"><a href="{{ route('categories.index') }}"><i class="fa fa-link"></i> <span>News & Article</span></a></li>
+            <li class="active"><a href="{{ route('products.index') }}"><i class="fa fa-link"></i> <span>Product & Services</span></a></li>
+            <li class="active"><a href="{{ route('customers.index') }}"><i class="fa fa-link"></i> <span></span>Buying</a></li>
             <!-- <li class="active"><a href="{{ route('sales.index') }}"><i class="fa fa-link"></i> <span>Sales</span></a></li> -->
             <li class="active"><a href="{{ route('suppliers.index') }}"><i class="fa fa-link"></i> <span>Supplier</span></a></li>
             <!-- <li class="active"><a href="{{ route('productsOut.index') }}"><i class="fa fa-link"></i> <span>Reporting Data Out</span></a></li> -->

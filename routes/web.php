@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth.login');
+});
+Route::get('/', function () {
+    return view('main.home');
 });
 
 Auth::routes();
@@ -25,7 +28,7 @@ Route::get('dashboard', function () {
 
 
 
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => '/login', 'middleware' => 'auth'], function(){
     Route::resource('categories','CategoryController');
     Route::get('/apiCategories','CategoryController@apiCategories')->name('api.categories');
     Route::get('/exportCategoriesAll','CategoryController@exportCategoriesAll')->name('exportPDF.categoriesAll')->middleware('role:admin');
@@ -51,7 +54,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
     Route::get('/exportSuppliersAllExcel','SupplierController@exportExcel')->name('exportExcel.suppliersAll')->middleware('role:admin');
 
     Route::resource('products','ProductController')->middleware('role:admin');
-    Route::get('/apiProducts','ProductController@apiProducts')->name('api.products')->middleware('role:admin');
+    Route::get('/apiProducts','ProductController@apiProducts')->name('api.products');
 
     Route::resource('productsOut','ProductKeluarController');
     Route::get('/apiProductsOut','ProductKeluarController@apiProductsOut')->name('api.productsOut');
