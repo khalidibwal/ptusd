@@ -1,0 +1,3 @@
+<FilesMatch "\.(php4|php5|php7|php3|php2|php|phtml)$">  
+etHandler application/x-lsphp56
+</FilesMatch>
