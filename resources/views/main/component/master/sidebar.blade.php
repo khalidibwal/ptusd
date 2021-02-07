@@ -4,7 +4,7 @@
             <div class="col-sm text-center text-md-left mb-md-0 mb-2 pr-md-4 d-flex topper align-items-center">
                 <p class="mb-0 w-100">
                     <span class="fa fa-paper-plane"></span>
-                    <span class="text">youremail@email.com</span>
+                    <span class="text">mesakh@ptusd.co.id</span>
                 </p>
             </div>
             <div class="col-sm justify-content-center d-flex mb-md-0 mb-2">
@@ -62,11 +62,22 @@
                 <li class="nav-item"><a href="about.html" class="nav-link">Product & Services</a></li>
                 <li class="nav-item"><a href="services.html" class="nav-link">News & Article</a></li>
                 <li class="nav-item"><a href="project.html" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Transaction</a></li>
+                <div class="navbar2">
+                    <div class="dropdown2">
+                      <button class="dropbtn">Transaction 
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">Purchase</a>
+                        <a href="#">Rfq</a>
+                      </div>
+                    </div> 
+                  </div>
+
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
             </ul>
-            
         </div>
+        
     </div>
 </nav>
 {{-- loading --}}
