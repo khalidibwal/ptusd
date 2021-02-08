@@ -27,7 +27,7 @@
             <div class="col-md-4 d-flex mb-2 mb-md-0">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
                     <span class="flaticon flaticon-crane"></span>
-                    <span class="ml-2">Wilcon <small>Construction Company</small></span>
+                    <span class="ml-2">PT <small>Universal Sinergi Dinamika</small></span>
                 </a>
             </div>
             <div class="col-md-4 d-flex topper mb-md-0 mb-2 align-items-center">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="pr-md-4 pl-md-3 pl-3 text">
                     <p class="con"><span>Free Call</span> <span>+1 234 456 78910</span></p>
-                    <p class="con">Call Us Now 24/7 Customer Support</p>
+                    <p class="con">Call Us Now for Customer Support</p>
                 </div>
             </div>
             <div class="col-md-4 d-flex topper mb-md-0 align-items-center">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="text pl-3 pl-md-3">
                     <p class="hr"><span>Our Location</span></p>
-                    <p class="con">198 West 21th Street, Suite 721 New York NY 10016</p>
+                    <p class="con">Location here...</p>
                 </div>
             </div>
         </div>
@@ -58,9 +58,25 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">Product & Services</a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link">News & Article</a></li>
+                <li class="nav-item"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+                <div class="navbar2">
+                    <div class="dropdown2">
+                      <button class="dropbtn">Product & Services 
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">Pumps</a>
+                        <a href="#">Water & ?</a>
+                        <a href="#">Aguaculture</a>
+                        <a href="#">Cooling Tower</a>
+                        <a href="#">Sjrp</a>
+                        <a href="#">Flood Barriers</a>
+                        <a href="#">Energy Conservation</a>
+                        <a href="#">Solar Panel / Street Light System</a>
+                      </div>
+                    </div> 
+                  </div>
+                <li class="nav-item"><a href="{{route('news.index')}}" class="nav-link">News & Article</a></li>
                 <li class="nav-item"><a href="project.html" class="nav-link">Projects</a></li>
                 <div class="navbar2">
                     <div class="dropdown2">
@@ -74,7 +90,7 @@
                     </div> 
                   </div>
 
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="{{route('contact.index')}}" class="nav-link">Contact Us</a></li>
             </ul>
         </div>
         

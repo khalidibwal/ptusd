@@ -17,6 +17,8 @@ Route::get('/login', function () {
 Route::get('/', function () {
     return view('main.home');
 });
+Route::get('/news', 'newsController@index')->name('news.index');
+Route::get('/contactus', 'contactController@index')->name('contact.index');
 
 Auth::routes();
 

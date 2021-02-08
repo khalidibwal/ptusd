@@ -23,15 +23,6 @@
 	<link rel="stylesheet" href="{{URL::asset('frontend/css/menu.css')}}">
 </head>
     <body>
-		@extends('main.component.js.index')
-		@extends('main.component.master.footer')
-		@extends('main.component.home.vision')	
-		@extends('main.component.home.what')	
-		@extends('main.component.home.who')	
-		@extends('main.component.home.testimonial')	
-		@extends('main.component.home.history')	
-		@extends('main.component.home.titlesection')	
-		@extends('main.component.home.header')	
-		@extends('main.component.master.sidebar')
+
 	</body>
 </html>

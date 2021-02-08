@@ -9198,7 +9198,7 @@ textarea.form-control {
     opacity: 1; }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 4em 0;
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
@@ -9861,7 +9861,7 @@ textarea.form-control {
 .contact-section .contact-form {
   width: 100%;
   border-radius: 5px;
-  background: #f8f9fa; }
+  background: #e1dcdc; }
   @media (max-width: 767.98px) {
     .contact-section .contact-form .btn-primary {
       display: block;
