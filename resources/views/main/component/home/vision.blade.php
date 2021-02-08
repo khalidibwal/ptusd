@@ -1,39 +1,35 @@
-<section class="ftco-section" id="about-section">
+<section class="ftco-section bg-half-light">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 py-5 pl-md-5">
-                <div class="row justify-content-center mb-4 pt-md-4">
-                    <div class="col-md-12 heading-section ftco-animate">
-                        
-                        <h2 class="mb-4">Vision</h2>
-                        <div class="d-flex about">
-                            {{-- <div class="icon"><span class="flaticon-hammer"></span></div> --}}
-                            <h3>We're in this business since 1975 and We provide the best insdustrial services
-                                We provide the best insdustrial services We provide the best insdustrial services
-                            </h3>
-                    
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 py-5 pl-md-5">
-                <div class="row justify-content-center mb-4 pt-md-4">
-                    <div class="col-md-12 heading-section ftco-animate">
-                        
-                        <h2 class="mb-4">Mission</h2>
-                        <div class="d-flex about">
-                            {{-- <div class="icon"><span class="flaticon-hammer"></span></div> --}}
-                            <h3>We're in this business since 1975 and We provide the best insdustrial services
-                                We provide the best insdustrial services We provide the best insdustrial services
-                            </h3>
-                    
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+     <div class="row justify-content-center mb-5 pb-2">
+       <div class="col-md-8 text-center heading-section ftco-animate">
+        
+        <h2 class="mb-4">Vission & Mission</h2>
+      </div>
     </div>
-</section>
+    <div class="row">
+      <div class="col-md-4">
+       <div class="services-wrap ftco-animate">
+        
+        <div class="text">
+         <div class="icon"><span class="flaticon-architect"></span></div>
+         <h2>Vission</h2>
+         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+         
+       </div>
+     </div>
+   </div>
+   <div class="col-md-4">
+     <div class="services-wrap ftco-animate">
+      
+      <div class="text">
+       <div class="icon"><span class="flaticon-worker"></span></div>
+       <h2>Mission</h2>
+       <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+       
+     </div>
+   </div>
+   </div>
+ 
+   </div>
+   </div>
+   </section>
