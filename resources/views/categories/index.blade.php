@@ -67,7 +67,7 @@
         var table = $('#categories-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('api.categories') }}",
+            ajax: "{{ route('api.news') }}",
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
@@ -87,13 +87,15 @@
             save_method = 'edit';
             $('input[name=_method]').val('PATCH');
             $('#modal-form form')[0].reset();
+            var url = "{{ route('news.edit',":id") }}"
+            url = url.replace(':id',id);
             $.ajax({
-                url: "{{ url('categories') }}" + '/' + id + "/edit",
+                url: url,
                 type: "GET",
                 dataType: "JSON",
                 success: function(data) {
                     $('#modal-form').modal('show');
-                    $('.modal-title').text('Edit Categories');
+                    $('.modal-title').text('Edit News And Article');
 
                     $('#id').val(data.id);
                     $('#name').val(data.name);
@@ -115,9 +117,11 @@
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Yes, delete it!'
             }).then(function () {
+                var url = "{{ route('news.delete',":id") }}";
+                url = url.replace(':id',id)
                 $.ajax({
-                    url : "{{ url('categories') }}" + '/' + id,
-                    type : "POST",
+                    url :  url,
+                    type : "delete",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
                     success : function(data) {
                         table.ajax.reload();
@@ -144,8 +148,9 @@
             $('#modal-form form').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()){
                     var id = $('#id').val();
-                    if (save_method == 'add') url = "{{ url('categories') }}";
-                    else url = "{{ url('categories') . '/' }}" + id;
+                    if (save_method == 'add') url = "{{ route('news.store') }}";
+                    else var url = "{{ route('news.update',":id")}}";
+                    url = url.replace(':id',id);
 
                     $.ajax({
                         url : url,

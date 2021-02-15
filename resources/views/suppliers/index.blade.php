@@ -10,11 +10,11 @@
     <div class="box">
 
         <div class="box-header">
-            <h3 class="box-title">Data Suppliers</h3>
+            <h3 class="box-title">Data Testimonials</h3>
         </div>
 
         <div class="box-header">
-            <a onclick="addForm()" class="btn btn-primary" >Add Customers</a>
+            <a onclick="addForm()" class="btn btn-primary" >Add Message</a>
             <a href="{{ route('exportPDF.suppliersAll') }}" class="btn btn-danger">Export PDF</a>
             <a href="{{ route('exportExcel.suppliersAll') }}" class="btn btn-success">Export Excel</a>
         </div>
@@ -27,9 +27,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Address</th>
                     <th>Email</th>
-                    <th>Phone</th>
+                    <th>Message</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -72,13 +71,12 @@
         var table = $('#sales-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('api.suppliers') }}",
+            ajax: "{{ route('api.testimonials') }}",
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'nama', name: 'nama'},
-                {data: 'alamat', name: 'alamat'},
                 {data: 'email', name: 'email'},
-                {data: 'telepon', name: 'telepon'},
+                {data: 'message', name: 'message'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
@@ -88,26 +86,27 @@
             $('input[name=_method]').val('POST');
             $('#modal-form').modal('show');
             $('#modal-form form')[0].reset();
-            $('.modal-title').text('Add Suppliers');
+            $('.modal-title').text('Add testimonials');
         }
 
         function editForm(id) {
             save_method = 'edit';
             $('input[name=_method]').val('PATCH');
             $('#modal-form form')[0].reset();
+            var url = "{{ route('edit.testimonials',":id") }}";
+            url = url.replace(':id',id);
             $.ajax({
-                url: "{{ url('suppliers') }}" + '/' + id + "/edit",
+                url: url,
                 type: "GET",
                 dataType: "JSON",
                 success: function(data) {
                     $('#modal-form').modal('show');
-                    $('.modal-title').text('Edit Suppliers');
+                    $('.modal-title').text('Edit Testimonials');
 
                     $('#id').val(data.id);
                     $('#nama').val(data.nama);
-                    $('#alamat').val(data.alamat);
                     $('#email').val(data.email);
-                    $('#telepon').val(data.telepon);
+                    $('#message').val(data.message);
                 },
                 error : function() {
                     alert("Nothing Data");
@@ -126,9 +125,11 @@
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Yes, delete it!'
             }).then(function () {
+                var url = "{{ route('delete.testimonials',":id") }}";
+                url = url.replace(':id',id);
                 $.ajax({
-                    url : "{{ url('suppliers') }}" + '/' + id,
-                    type : "POST",
+                    url : url,
+                    type : "delete",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
                     success : function(data) {
                         table.ajax.reload();
@@ -155,8 +156,9 @@
             $('#modal-form form').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()){
                     var id = $('#id').val();
-                    if (save_method == 'add') url = "{{ url('suppliers') }}";
-                    else url = "{{ url('suppliers') . '/' }}" + id;
+                    if (save_method == 'add') url = "{{ route('store.testimonials') }}";
+                    else var url = "{{ route('update.testimonials',":id") }}";
+                    url = url.replace(':id',id);
 
                     $.ajax({
                         url : url,

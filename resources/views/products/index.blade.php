@@ -91,8 +91,10 @@
             save_method = 'edit';
             $('input[name=_method]').val('PATCH');
             $('#modal-form form')[0].reset();
+            var url = "{{ route('edit.products',":id") }}";
+            url = url.replace(':id',id);
             $.ajax({
-                url: "{{ url('products') }}" + '/' + id + "/edit",
+                url: url,
                 type: "GET",
                 dataType: "JSON",
                 success: function(data) {
@@ -122,9 +124,11 @@
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Yes, delete it!'
             }).then(function () {
+                var url = "{{route('delete.products',":id")}}";
+                url = url.replace(':id',id);
                 $.ajax({
-                    url : "{{ url('products') }}" + '/' + id,
-                    type : "POST",
+                    url : url,
+                    type : "delete",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
                     success : function(data) {
                         table.ajax.reload();
@@ -151,8 +155,9 @@
             $('#modal-form form').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()){
                     var id = $('#id').val();
-                    if (save_method == 'add') url = "{{ url('products') }}";
-                    else url = "{{ url('products') . '/' }}" + id;
+                    if (save_method == 'add') url = "{{ route('store.products') }}";
+                    else var url = "{{ route('update.products',":id") }}";
+                    url = url.replace(':id',id);
 
                     $.ajax({
                         url : url,

@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $news = Category::all();
         return view('categories.index');
     }
 
@@ -74,8 +74,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return $category;
+        $news = Category::find($id);
+        return response()->json($news);
     }
 
     /**
@@ -91,13 +91,13 @@ class CategoryController extends Controller
             'name'   => 'required|string|min:2'
         ]);
 
-        $category = Category::findOrFail($id);
+        $news = Category::findOrFail($id);
 
-        $category->update($request->all());
+        $news->update($request->all());
 
         return response()->json([
             'success'    => true,
-            'message'    => 'Categories Update'
+            'message'    => 'News Update'
         ]);
     }
 
@@ -113,19 +113,19 @@ class CategoryController extends Controller
 
         return response()->json([
             'success'    => true,
-            'message'    => 'Categories Delete'
+            'message'    => 'News Delete'
         ]);
     }
 
-    public function apiCategories()
+    public function apiNews()
     {
-        $categories = Category::all();
+        $news = Category::all();
 
-        return Datatables::of($categories)
-            ->addColumn('action', function($categories){
+        return Datatables::of($news)
+            ->addColumn('action', function($news){
                 return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
-                    '<a onclick="editForm('. $categories->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
-                    '<a onclick="deleteData('. $categories->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+                    '<a onclick="editForm('. $news->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
+                    '<a onclick="deleteData('. $news->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
             })
             ->rawColumns(['action'])->make(true);
     }

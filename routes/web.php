@@ -14,9 +14,8 @@
 Route::get('/login', function () {
     return view('auth.login');
 });
-Route::get('/', function () {
-    return view('main.home');
-});
+
+Route::get('/', 'MainController@index');
 Route::get('/news', 'newsController@index')->name('news.index');
 Route::get('/contactus', 'contactController@index')->name('contact.index');
 
@@ -31,8 +30,13 @@ Route::get('dashboard', function () {
 
 
 Route::group(['prefix' => '/login', 'middleware' => 'auth'], function(){
-    Route::resource('categories','CategoryController');
-    Route::get('/apiCategories','CategoryController@apiCategories')->name('api.categories');
+    Route::resource('news','CategoryController');
+    Route::get('/newsindex','CategoryController@index')->name('api.index');
+    Route::get('/apiNews','CategoryController@apiNews')->name('api.news');
+    Route::post('/newsStore/store','CategoryController@store')->name('news.store');
+    Route::patch('/newsUpdate/{id}','CategoryController@update')->name('news.update');
+    Route::delete('/newsDelete/{id}','CategoryController@destroy')->name('news.delete');
+    Route::get('/newsEdit/{id}','CategoryController@edit')->name('news.edit');
     Route::get('/exportCategoriesAll','CategoryController@exportCategoriesAll')->name('exportPDF.categoriesAll')->middleware('role:admin');
     Route::get('/exportCategoriesAllExcel','CategoryController@exportExcel')->name('exportExcel.categoriesAll')->middleware('role:admin');
 
@@ -49,14 +53,24 @@ Route::group(['prefix' => '/login', 'middleware' => 'auth'], function(){
     Route::get('/exportSalesAll','SaleController@exportSalesAll')->name('exportPDF.salesAll');
     Route::get('/exportSalesAllExcel','SaleController@exportExcel')->name('exportExcel.salesAll');
 
-    Route::resource('suppliers','SupplierController');
-    Route::get('/apiSuppliers','SupplierController@apiSuppliers')->name('api.suppliers');
+    Route::resource('testimonials','SupplierController');
+    Route::get('/TestimonialsView','SupplierController@index')->name('index.testimonials');
+    Route::get('/apiTestimonials','SupplierController@apiSuppliers')->name('api.testimonials');
+    Route::post('/Storetestimonials','SupplierController@store')->name('store.testimonials');
+    Route::get('/Edittestimonials/{id}','SupplierController@edit')->name('edit.testimonials');
+    Route::patch('/Updatetestimonials/{id}','SupplierController@update')->name('update.testimonials');
+    Route::delete('/Deletetestimonials/{id}','SupplierController@destroy')->name('delete.testimonials');
     Route::post('/importSuppliers','SupplierController@ImportExcel')->name('import.suppliers');
     Route::get('/exportSupplierssAll','SupplierController@exportSuppliersAll')->name('exportPDF.suppliersAll')->middleware('role:admin');
     Route::get('/exportSuppliersAllExcel','SupplierController@exportExcel')->name('exportExcel.suppliersAll')->middleware('role:admin');
 
-    Route::resource('products','ProductController')->middleware('role:admin');
+    Route::resource('products','ProductController');
     Route::get('/apiProducts','ProductController@apiProducts')->name('api.products');
+    Route::get('/ProductViews','ProductController@index')->name('index.products');
+    Route::post('/StoreProduct','ProductController@store')->name('store.products');
+    Route::get('/EditProducts/{id}','ProductController@edit')->name('edit.products');
+    Route::patch('/UpdateProducts/{id}','ProductController@update')->name('update.products');
+    Route::delete('/DeleteProducts/{id}','ProductController@destroy')->name('delete.products');
 
     Route::resource('productsOut','ProductKeluarController');
     Route::get('/apiProductsOut','ProductKeluarController@apiProductsOut')->name('api.productsOut');
@@ -64,8 +78,8 @@ Route::group(['prefix' => '/login', 'middleware' => 'auth'], function(){
     Route::get('/exportProductKeluarAllExcel','ProductKeluarController@exportExcel')->name('exportExcel.productKeluarAll');
     Route::get('/exportProductKeluar/{id}','ProductKeluarController@exportProductKeluar')->name('exportPDF.productKeluar');
 
-    Route::resource('productsIn','ProductMasukController')->middleware('role:admin');
-    Route::get('/apiProductsIn','ProductMasukController@apiProductsIn')->name('api.productsIn')->middleware('role:admin');
+    Route::resource('productsIn','ProductMasukController');
+    Route::get('/apiProductsIn','ProductMasukController@apiProductsIn')->name('api.productsIn');
     Route::get('/exportProductMasukAll','ProductMasukController@exportProductMasukAll')->name('exportPDF.productMasukAll')->middleware('role:admin');
     Route::get('/exportProductMasukAllExcel','ProductMasukController@exportExcel')->name('exportExcel.productMasukAll')->middleware('role:admin');
     Route::get('/exportProductMasuk/{id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk')->middleware('role:admin');
