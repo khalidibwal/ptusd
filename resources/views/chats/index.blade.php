@@ -88,11 +88,13 @@
         }
 
         function editForm(id) {
+            var url = "{{ route('Chating.edit', ":id") }}";
+            url = url.replace(':id', id);
             save_method = 'edit';
             $('input[name=_method]').val('PATCH');
             $('#modal-form form')[0].reset();
             $.ajax({
-                url: "{{ url('Chating') }}" + '/' + id + "/edit",
+                url: url,
                 type: "GET",
                 dataType: "JSON",
                 success: function(data) {
@@ -104,9 +106,13 @@
                     $('#email').val(data.email);
                     $('#message').val(data.message);
                 },
-                error : function() {
-                    alert("Nothing Data");
-                }
+                error : function () {
+                        swal({
+                            title: 'Data Corupt',
+                            type: 'error',
+                            timer: '1500'
+                        })
+                    }
             });
         }
 
@@ -121,9 +127,11 @@
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Yes, delete it!'
             }).then(function () {
+                var url = "{{ route('chat.destroy', ":id") }}";
+                url = url.replace(':id', id);
                 $.ajax({
-                    url : "{{ url('Chating') }}" + '/' + id,
-                    type : "POST",
+                    url : url,
+                    type : "Delete",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
                     success : function(data) {
                         table.ajax.reload();
@@ -150,8 +158,9 @@
             $('#modal-form form').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()){
                     var id = $('#id').val();
-                    if (save_method == 'add') url = "{{ url('Chating') }}";
-                    else url = "{{ url('Chating') . '/' }}" + id;
+                    if (save_method == 'add') url = "{{ route('chat.store') }}";
+                    else var url = "{{ route('Chating.update', ":id") }}";
+                    url = url.replace(':id', id);
 
                     $.ajax({
                         url : url,

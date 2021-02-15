@@ -73,5 +73,9 @@ Route::group(['prefix' => '/login', 'middleware' => 'auth'], function(){
     Route::resource('Chating','ChatController');
     Route::get('/chatApi', 'ChatController@index')->name('chat.index');
     Route::get('/chatingAction', 'ChatController@apiChat')->name('api.chat');
+    Route::get('/EditChat/{id}','ChatController@edit')->name('Chating.edit');
+    Route::patch('/updateChat/{id}','ChatController@update')->name('Chating.update');
+    Route::post('/chatStore','ChatController@store')->name('chat.store');
+    Route::delete('/DeleteChat/{id}','ChatController@destroy')->name('chat.destroy');
 });
 

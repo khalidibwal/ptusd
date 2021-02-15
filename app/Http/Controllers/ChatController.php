@@ -37,14 +37,15 @@ class ChatController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama'   => 'required'
+            'nama' => 'required',
+            'email' => 'required',
+            'message' => 'required'
          ]);
  
          chating::create($request->all());
- 
          return response()->json([
             'success'    => true,
-            'message'    => 'Categories Created'
+            'message'    => 'Chat Created'
          ]);
     }
 
@@ -68,7 +69,8 @@ class ChatController extends Controller
     public function edit($id)
     {
         $chating = chating::find($id);
-        return $chating;
+        return response()->json($chating);
+        // return view('chat.index')->with('chating', $chating);
     }
 
     /**

@@ -25,9 +25,9 @@
             <li class="active"><a href="{{ route('chat.index') }}"><i class="fa fa-link"></i> <span>Chat</span></a></li>
             <li class="active"><a href="{{ route('categories.index') }}"><i class="fa fa-link"></i> <span>News & Article</span></a></li>
             <li class="active"><a href="{{ route('products.index') }}"><i class="fa fa-link"></i> <span>Product & Services</span></a></li>
-            <li class="active"><a href="{{ route('customers.index') }}"><i class="fa fa-link"></i> <span></span>Buying</a></li>
+            <li class="active"><a href="{{ route('customers.index') }}"><i class="fa fa-link"></i> <span></span>Transaction</a></li>
             <!-- <li class="active"><a href="{{ route('sales.index') }}"><i class="fa fa-link"></i> <span>Sales</span></a></li> -->
-            <li class="active"><a href="{{ route('suppliers.index') }}"><i class="fa fa-link"></i> <span>Supplier</span></a></li>
+            <li class="active"><a href="{{ route('suppliers.index') }}"><i class="fa fa-link"></i> <span>Testimonials</span></a></li>
             <!-- <li class="active"><a href="{{ route('productsOut.index') }}"><i class="fa fa-link"></i> <span>Reporting Data Out</span></a></li> -->
             <li class="active"><a href="{{ route('productsIn.index') }}"><i class="fa fa-link"></i> <span>Reporting Data</span></a></li>
         </ul>
