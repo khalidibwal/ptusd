@@ -65,8 +65,13 @@
                         <i class="fa fa-caret-down"></i>
                       </button>
                       <div class="dropdown-content">
-                        <a href="#">Pumps</a>
-                        <a href="#">Water & ?</a>
+                        <li>
+                            <a href="#">Pumps</a>
+                            <ul>
+                                <li><a href="#">Pumps</a></li>
+                                <li><a href="#">Water & ?</a></li>
+                            </ul>
+                        </li>
                         <a href="#">Aguaculture</a>
                         <a href="#">Cooling Tower</a>
                         <a href="#">Sjrp</a>

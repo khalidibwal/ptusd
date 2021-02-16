@@ -34,7 +34,7 @@
 
 <div class="login-box">
     <div class="login-logo">
-        <h1><b>Inventory Stock</b> Management</h1>
+        <h1><b>PT. </b> Universal Sinergi Dinamika</h1>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
