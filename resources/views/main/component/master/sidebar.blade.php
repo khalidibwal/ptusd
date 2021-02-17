@@ -125,8 +125,8 @@
                       </div>
                     </div> 
                   </div>
-                <li class="nav-item"><a href="{{route('news.index')}}" class="nav-link">News & Article</a></li>
-                <li class="nav-item"><a href="project.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="{{route('publicnews.index')}}" class="nav-link">News & Article</a></li>
+                <li class="nav-item"><a href="{{route('project.index')}}" class="nav-link">Projects</a></li>
                 <div class="navbar2">
                     <div class="dropdown2">
                       <button class="dropbtn">Transaction 

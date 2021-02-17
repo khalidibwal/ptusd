@@ -9666,6 +9666,9 @@ textarea.form-control {
     position: absolute;
     top: 0;
     left: 0; }
+  .teams{
+    background-image: url(images/team.jpeg);
+  }
   .block-2 .front {
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);

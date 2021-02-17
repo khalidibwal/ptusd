@@ -26,6 +26,7 @@
     <body>
 		@extends('main.component.js.index')
 		@extends('main.component.master.footer')
+		@extends('main.component.home.team')	
 		@extends('main.component.home.vision')	
 		@extends('main.component.home.what')	
 		@extends('main.component.home.who')	

@@ -18,6 +18,8 @@ Route::get('/login', function () {
 Route::get('/', 'MainController@index');
 Route::get('/news', 'newsController@index')->name('news.index');
 Route::get('/contactus', 'contactController@index')->name('contact.index');
+Route::get('/project', 'pageController@project')->name('project.index');
+Route::get('/publicnews', 'pageController@news')->name('publicnews.index');
 
 Auth::routes();
 

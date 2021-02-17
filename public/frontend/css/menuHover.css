@@ -79,7 +79,7 @@
 .dropdown-content a:hover {
   background-color: rgb(175, 177, 197);
   z-index: 100;
-  font-size: 10px;
+  font-size: small;
 }
 
 .dropdown2:hover .dropdown-content {
@@ -101,7 +101,7 @@
   float: right;
   display: block;
   background-color: #fc5e28;
-  min-width: 250px;
+  min-width: 200px;
   z-index: 10;
   border-radius: 1px;
   font-size: 5px;
