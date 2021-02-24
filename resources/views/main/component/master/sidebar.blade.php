@@ -125,7 +125,18 @@
                       </div>
                     </div> 
                   </div>
-                <li class="nav-item"><a href="{{route('publicnews.index')}}" class="nav-link">News & Article</a></li>
+
+                  <div class="navbar2">
+                    <div class="dropdown2">
+                      <button class="dropbtn">News 
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="{{route('publicnews.index')}}">News</a>
+                        <a href="#">Article</a>
+                      </div>
+                    </div> 
+                  </div>
                 <li class="nav-item"><a href="{{route('project.index')}}" class="nav-link">Projects</a></li>
                 <div class="navbar2">
                     <div class="dropdown2">

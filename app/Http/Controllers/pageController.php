@@ -12,4 +12,7 @@ class pageController extends Controller
     public function news(){
         return view('main.page.news.index');
     }
+    public function chating(){
+        return view('main.component.chat.index');
+    }
 }

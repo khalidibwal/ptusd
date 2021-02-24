@@ -15,11 +15,13 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
+
 Route::get('/', 'MainController@index');
 Route::get('/news', 'newsController@index')->name('news.index');
 Route::get('/contactus', 'contactController@index')->name('contact.index');
 Route::get('/project', 'pageController@project')->name('project.index');
 Route::get('/publicnews', 'pageController@news')->name('publicnews.index');
+Route::get('/publicChat', 'pageController@chating');
 
 Auth::routes();
 

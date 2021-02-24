@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="{{URL::asset('frontend/css/flaticon.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('frontend/css/style.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('frontend/css/menuHover.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('frontend/css/chatings.css')}}">
 </head>
     <body>
 
